@@ -40,3 +40,38 @@ if (!reduce) {
     observer.observe(el);
   });
 }
+// Scroll progress bar
+const bar = document.createElement("div");
+bar.id = "progress";
+document.body.appendChild(bar);
+
+// Glow that follows the mouse
+const glow = document.createElement("div");
+glow.id = "cursor-glow";
+document.body.appendChild(glow);
+if (reduce) {
+  glow.remove();
+} else {
+  window.addEventListener("mousemove", (e) => {
+    glow.style.transform = "translate(" + (e.clientX - 200) + "px, " + (e.clientY - 200) + "px)";
+  });
+}
+
+// Update progress bar and highlight the current nav link
+const navLinks = document.querySelectorAll("nav a");
+const pageSections = document.querySelectorAll("main section");
+
+function onScroll() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+
+  let current = "";
+  pageSections.forEach((s) => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.id;
+  });
+  navLinks.forEach((a) => {
+    a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+  });
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
