@@ -163,6 +163,68 @@ header p.typing::after {
   opacity: 1;
   transform: translateY(0);
 }
+/* Sticky glass nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px;
+  background: rgba(11, 15, 26, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+nav a {
+  position: relative;
+  color: var(--muted);
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+nav a:hover::after,
+nav a.active::after { transform: scaleX(1); }
+nav a.active { color: #fff; }
+
+section { scroll-margin-top: 60px; }
+
+/* Scroll progress bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 20;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+/* Mouse-follow glow */
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate(-1000px, -1000px);
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.18), transparent 65%);
+}
 /* Respect people who turn animations off */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
