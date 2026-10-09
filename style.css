@@ -45,7 +45,7 @@ body::before {
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+  50%      { transform: translateY(-10px); }
 }
 @keyframes blink { 50% { opacity: 0; } }
 
@@ -71,7 +71,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 6vw;
+  padding: 12px 5vw;
   background: rgba(17, 18, 13, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -79,7 +79,7 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--white);
 }
@@ -119,41 +119,42 @@ nav {
   background: rgba(255, 251, 244, 0.12);
 }
 
-/* Hero */
+/* Hero: text on the left, photo on the right, fits one screen */
 header {
   min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 5vw 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 48px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 110px 6vw 60px;
+  gap: 3vw;
 }
 
 .hero-text {
-  flex: 1 1 420px;
+  flex: 1 1 480px;
+  max-width: 780px;
   display: flex;
   flex-direction: column;
 }
 
 .badge {
   align-self: flex-start;
-  padding: 6px 16px;
-  margin-bottom: 24px;
+  padding: 5px 16px;
+  margin-bottom: 16px;
   border: 1px solid rgba(216, 207, 188, 0.3);
   background: rgba(86, 84, 73, 0.3);
   color: var(--bone);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.12em;
   animation: fadeUp 0.9s ease both;
 }
 
 header h1 {
-  font-size: clamp(2.6rem, 8vw, 4.8rem);
-  line-height: 1.1;
+  font-size: clamp(2rem, min(4.4vw, 7.5vh), 4.2rem);
+  line-height: 1.12;
   animation: fadeUp 0.9s ease 0.1s both;
 }
 header h1 .accent {
@@ -166,9 +167,10 @@ header h1 .accent {
 }
 
 header p {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
   color: var(--muted);
-  margin: 16px 0 28px;
+  max-width: 620px;
+  margin: 14px 0 22px;
   min-height: 1.6em;
   animation: fadeUp 0.9s ease 0.2s both;
 }
@@ -182,11 +184,11 @@ header p.typing::after {
 .cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
   animation: fadeUp 0.9s ease 0.5s both;
 }
 .btn {
-  padding: 14px 26px;
+  padding: 11px 22px;
   border-radius: 10px;
   font-weight: 600;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -209,29 +211,29 @@ header p.typing::after {
 .pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 36px;
+  gap: 8px;
+  margin-top: 22px;
   animation: fadeUp 0.9s ease 0.7s both;
 }
 .pills span {
-  padding: 6px 16px;
+  padding: 5px 14px;
   border: 1px solid rgba(216, 207, 188, 0.18);
   border-radius: 999px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .hero-photo {
-  flex: 0 1 340px;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
-  margin: 0 auto;
+  gap: 18px;
+  margin-left: auto;
   animation: fadeUp 1s ease 0.3s both;
 }
 .avatar {
-  width: clamp(220px, 30vw, 340px);
+  width: clamp(160px, min(20vw, 38vh), 300px);
   aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
@@ -239,19 +241,19 @@ header p.typing::after {
   box-shadow: 0 0 60px rgba(216, 207, 188, 0.15);
   animation: float 6s ease-in-out infinite;
 }
-.social { display: flex; gap: 26px; }
+.social { display: flex; gap: 22px; }
 .social a {
   color: var(--muted);
   transition: transform 0.25s ease, color 0.25s ease;
 }
 .social a:hover { color: var(--white); transform: translateY(-4px); }
-.social svg { width: 28px; height: 28px; display: block; }
+.social svg { width: 26px; height: 26px; display: block; }
 
-/* Sections */
+/* Sections (same width as the hero so edges line up) */
 main {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 6vw 80px;
+  padding: 0 5vw 80px;
 }
 section { padding: 70px 0; scroll-margin-top: 80px; }
 
@@ -330,31 +332,15 @@ li:hover { transform: scale(1.08); background: var(--olive); }
   transform: translate(-1000px, -1000px);
   background: radial-gradient(circle, rgba(216, 207, 188, 0.09), transparent 65%);
 }
-/* Hero sized to fit one screen */
-header {
-  max-width: 1200px;
-  padding: 90px 5vw 40px;
-  gap: 40px;
-}
-.hero-text { flex: 1 1 520px; }
-.badge { margin-bottom: 16px; }
-header h1 { font-size: clamp(2rem, min(4vw, 6.2vh), 3.3rem); }
-header p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  margin: 12px 0 22px;
-}
-.btn { padding: 12px 22px; }
-.pills { margin-top: 24px; }
-.hero-photo { gap: 20px; }
-.avatar { width: clamp(170px, min(22vw, 36vh), 280px); }
-.social { gap: 22px; }
-.social svg { width: 26px; height: 26px; }
+
 /* Small screens */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   nav { padding: 12px 16px; }
   .links { gap: 14px; font-size: 0.85rem; }
   .hire { display: none; }
   .logo { font-size: 1.15rem; }
+  header { padding-top: 90px; }
+  .hero-photo { margin: 10px auto 0; }
 }
 
 /* Respect people who turn animations off */
