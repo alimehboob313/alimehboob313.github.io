@@ -58,7 +58,7 @@ if (reduce) {
 }
 
 // Update progress bar and highlight the current nav link
-const navLinks = document.querySelectorAll("nav a");
+const navLinks = document.querySelectorAll("nav .links a");
 const pageSections = document.querySelectorAll("main section");
 
 function onScroll() {
