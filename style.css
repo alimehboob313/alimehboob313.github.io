@@ -417,3 +417,47 @@ li:hover { transform: scale(1.08); background: var(--olive); }
 @media (max-width: 800px) {
   .about-grid { grid-template-columns: 1fr; }
 }
+/* Tech stack grid */
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+}
+.tech {
+  background: var(--card);
+  border: 1px solid rgba(216, 207, 188, 0.1);
+  border-radius: 14px;
+  padding: 26px 12px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tech svg {
+  width: 34px;
+  height: 34px;
+  color: var(--bone);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.tech strong { display: block; font-size: 1rem; }
+.tech small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.tech:hover {
+  transform: translateY(-6px);
+  background: rgba(86, 84, 73, 0.3);
+  border-color: rgba(216, 207, 188, 0.45);
+  box-shadow: 0 12px 30px rgba(216, 207, 188, 0.1);
+}
+.tech:hover svg { transform: scale(1.15); color: var(--white); }
