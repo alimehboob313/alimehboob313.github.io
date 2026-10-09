@@ -15,7 +15,7 @@ if (tagline && !reduce) {
 
 // Fade-in on scroll, with a stagger for cards and skills
 if (!reduce) {
-  const items = document.querySelectorAll("section, article, li");
+  const items = document.querySelectorAll("section, article, li, .tech");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -27,7 +27,7 @@ if (!reduce) {
       setTimeout(() => {
         el.classList.remove("reveal", "visible");
         el.style.transitionDelay = "";
-      }, 1500);
+      }, 2500);
     });
   }, { threshold: 0.15 });
 
