@@ -54,14 +54,17 @@ header {
    padding: 0 6vw;}
 
 header h1 {
-  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-size: clamp(2.6rem, 8vw, 4.8rem);
   line-height: 1.1;
+  animation: fadeUp 0.9s ease 0.1s both;
+}
+header h1 .accent {
   background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shine 6s linear infinite, fadeUp 0.9s ease both;
+  animation: shine 6s linear infinite;
 }
 
 header p {
