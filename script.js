@@ -75,3 +75,24 @@ function onScroll() {
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
+// Count-up numbers
+const counters = document.querySelectorAll("[data-count]");
+if (counters.length) {
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      countObserver.unobserve(el);
+      const target = Number(el.dataset.count);
+      if (reduce) { el.textContent = target; return; }
+      const start = performance.now();
+      const duration = 1200;
+      requestAnimationFrame(function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(tick);
+      });
+    });
+  }, { threshold: 0.6 });
+  counters.forEach((el) => countObserver.observe(el));
+}
