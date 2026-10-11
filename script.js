@@ -96,3 +96,22 @@ if (counters.length) {
   }, { threshold: 0.6 });
   counters.forEach((el) => countObserver.observe(el));
 }
+// Certificate pop-up
+const lightbox = document.createElement("div");
+lightbox.id = "lightbox";
+lightbox.innerHTML = "<img alt=''>";
+document.body.appendChild(lightbox);
+const lightboxImg = lightbox.querySelector("img");
+
+document.querySelectorAll(".cert").forEach((card) => {
+  card.addEventListener("click", (e) => {
+    e.preventDefault();
+    lightboxImg.src = card.getAttribute("href");
+    lightboxImg.alt = card.querySelector("img").alt;
+    lightbox.classList.add("open");
+  });
+});
+lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") lightbox.classList.remove("open");
+});
