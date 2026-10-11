@@ -636,3 +636,8 @@ h1, h2, h3 { line-height: 1.2; }
   header { padding-top: 125px; }
   section { scroll-margin-top: 110px; }
 }
+/* Phone: let code card lines wrap instead of cutting off */
+@media (max-width: 600px) {
+  .code-card { font-size: 0.78rem; padding: 18px; }
+  .code-card pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
