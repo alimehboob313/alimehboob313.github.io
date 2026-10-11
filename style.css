@@ -629,3 +629,10 @@ h1, h2, h3 { line-height: 1.2; }
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
+/* Phone top bar with 5 links: name on top, links below */
+@media (max-width: 700px) {
+  nav { flex-wrap: wrap; justify-content: center; row-gap: 6px; padding: 10px 14px; }
+  .links { width: 100%; justify-content: space-between; gap: 6px; font-size: 0.78rem; }
+  header { padding-top: 125px; }
+  section { scroll-margin-top: 110px; }
+}
